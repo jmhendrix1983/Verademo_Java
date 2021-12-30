@@ -1,0 +1,20 @@
+
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/openjdk:8-jdk
+    working_directory: ~/target
+    steps:
+      - checkout
+    run:
+      name: Build with Maven
+      command: |
+        'mvn compile package'
+         ls -lah /target | grep '*.war'
+    persist_to_workspace:
+      root: ./
+      paths:
+        - target
+        - ./
