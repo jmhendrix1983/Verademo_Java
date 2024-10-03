@@ -44,32 +44,32 @@ steps:
   displayName: 'Veracode SCA'
   continueOnError: true
   
-- task: Veracode@3
-  inputs:
-    ConnectionDetailsSelection: 'Credentials'
-    apiId: '$(APIID)'
-    apiKey: '$(APIKEY)'
-    veracodeAppProfile: '$(veracodeAppProfile)'
-    version: '$(build.buildNumber)'
-    filepath: '$(caminhoPacote)'
-    createSandBox: false
-    createProfile: true
-    failTheBuildIfVeracodeScanDidNotInitiate: false
-    scanStatusCheckInterval: '60'
-    importResults: true
-    failBuildOnPolicyFail: false
-  displayName: 'Veracode SAST'
+# - task: Veracode@3
+#   inputs:
+#     ConnectionDetailsSelection: 'Credentials'
+#     apiId: '$(APIID)'
+#     apiKey: '$(APIKEY)'
+#     veracodeAppProfile: '$(veracodeAppProfile)'
+#     version: '$(build.buildNumber)'
+#     filepath: '$(caminhoPacote)'
+#     createSandBox: false
+#     createProfile: true
+#     failTheBuildIfVeracodeScanDidNotInitiate: false
+#     scanStatusCheckInterval: '60'
+#     importResults: true
+#     failBuildOnPolicyFail: false
+#   displayName: 'Veracode SAST'
 
-- task: Veracode Flaw Importer@3
-  inputs:
-    ConnectionDetailsSelection: 'Credentials'
-    apiId: '$(APIID)'
-    apiKey: '$(APIKEY)'
-    veracodeAppProfile: '$(veracodeAppProfile)'
-    sandboxName: 
-    importType: 'All Flaws'
-    workItemType: 'Issue'
-    area: '$(system.teamProject)'
-    addCustomTag: '$(build.buildNumber)'
-    flawImportLimit: '1000'
-  displayName: 'Veracode importando falhas'
+# - task: Veracode Flaw Importer@3
+#   inputs:
+#     ConnectionDetailsSelection: 'Credentials'
+#     apiId: '$(APIID)'
+#     apiKey: '$(APIKEY)'
+#     veracodeAppProfile: '$(veracodeAppProfile)'
+#     sandboxName: 
+#     importType: 'All Flaws'
+#     workItemType: 'Issue'
+#     area: '$(system.teamProject)'
+#     addCustomTag: '$(build.buildNumber)'
+#     flawImportLimit: '1000'
+#   displayName: 'Veracode importando falhas'
